@@ -9,10 +9,10 @@ import "@react-sigma/core/lib/style.css"
 
 export default function GraphPreview({ className }: { className?: string }) {
   return (
-    <div className={cn("relative w-full h-full", className)}>
+    <div className={cn("relative w-full h-[400px]", className)}>
 
       <SigmaContainer
-        style={{ height: '100vh', width: '100%', backgroundColor: 'black' }}
+        style={{ height: '400px', width: '100%', backgroundColor: 'black' }}
         settings={{
           renderLabels: true,
           labelColor: { attribute: 'labelColor' },

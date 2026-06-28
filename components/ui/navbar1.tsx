@@ -1,170 +1,113 @@
-import { Book, Menu, Sunset, Trees, Zap } from 'lucide-react';
+'use client'
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
+import Link from 'next/link'
+import { Menu } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
-import LandingThemeSwitcher from './custom/landing-theme-switcher';
-import LanguageSwitcher from './custom/language-switcher';
+} from '@/components/ui/sheet'
 
-interface MenuItem {
-  title: string;
-  url: string;
-  description?: string;
-  icon?: React.ReactNode;
-  items?: MenuItem[];
-}
+import LanguageSwitcher from './custom/language-switcher'
 
-interface Navbar1Props {
-  logo?: {
-    url: string;
-    src: string;
-    alt: string;
-    title: string;
-  };
-  menu?: MenuItem[];
-  auth?: {
-    login: {
-      title: string;
-      url: string;
-    };
-    signup: {
-      title: string;
-      url: string;
-    };
-  };
-}
+const menus = [
+  {
+    title: 'About Me',
+    href: '#about',
+  },
+  {
+    title: 'Works',
+    href: '#works',
+  },
+  {
+    title: 'Projects',
+    href: '#projects',
+  },
+  {
+    title: 'Playground',
+    href: '#playground',
+  },
+]
 
-const Navbar1 = () => {
+export function Navbar1() {
   return (
-    <section className="py-4">
-      <div className="container">
-        {/* Desktop Menu */}
-        <nav className="hidden justify-between lg:flex">
-          <div className="flex items-center gap-6">
+    <header className="
+sticky top-0
+z-50
+border-b
+bg-white/70
+backdrop-blur-xl
+supports-[backdrop-filter]:bg-white/60
+">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
+        {/* Logo */}
 
-          </div>
-          <div className="flex gap-2">
-            {/* <LandingThemeSwitcher /> */}
-            <LanguageSwitcher />
-          </div>
+        <Link
+          href="/"
+          className="text-lg font-bold tracking-tight transition-opacity hover:opacity-70"
+        >
+          Ihsanul Afkar's Portofolio
+        </Link>
+
+        {/* Desktop */}
+
+        <nav className="hidden items-center gap-8 lg:flex">
+          {menus.map((menu) => (
+            <Link
+              key={menu.title}
+              href={menu.href}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {menu.title}
+            </Link>
+          ))}
         </nav>
 
-        {/* Mobile Menu */}
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
+        {/* Right */}
 
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Menu className="size-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    asd
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-6 p-4">
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
 
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+          {/* Mobile */}
+
+          <Sheet>
+            <SheetTrigger asChild className="lg:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+
+            <SheetContent side="right" className="w-72">
+              <SheetHeader>
+                <SheetTitle>Ihsanul Afkar</SheetTitle>
+              </SheetHeader>
+
+              <nav className="mt-8 flex flex-col gap-2">
+                {menus.map((menu) => (
+                  <Link
+                    key={menu.title}
+                    href={menu.href}
+                    className="rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-muted"
+                  >
+                    {menu.title}
+                  </Link>
+                ))}
+              </nav>
+
+              <div className="mt-8 border-t pt-6">
+                <LanguageSwitcher />
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-    </section>
-  );
-};
-
-const renderMenuItem = (item: MenuItem) => {
-  if (item.items) {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-        <NavigationMenuContent className="bg-popover text-popover-foreground">
-          {item.items.map((subItem) => (
-            <NavigationMenuLink asChild key={subItem.title} className="w-80">
-              <SubMenuLink item={subItem} />
-            </NavigationMenuLink>
-          ))}
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  return (
-    <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink
-        href={item.url}
-        className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors"
-      >
-        {item.title}
-      </NavigationMenuLink>
-    </NavigationMenuItem>
-  );
-};
-
-const renderMobileMenuItem = (item: MenuItem) => {
-  if (item.items) {
-    return (
-      <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
-          {item.title}
-        </AccordionTrigger>
-        <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <SubMenuLink key={subItem.title} item={subItem} />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-    );
-  }
-
-  return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
-      {item.title}
-    </a>
-  );
-};
-
-const SubMenuLink = ({ item }: { item: MenuItem }) => {
-  return (
-    <a
-      className="hover:bg-muted hover:text-accent-foreground flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-      href={item.url}
-    >
-      <div className="text-foreground">{item.icon}</div>
-      <div>
-        <div className="text-sm font-semibold">{item.title}</div>
-        {item.description && (
-          <p className="text-muted-foreground text-sm leading-snug">
-            {item.description}
-          </p>
-        )}
-      </div>
-    </a>
-  );
-};
-
-export { Navbar1 };
+    </header>
+  )
+}

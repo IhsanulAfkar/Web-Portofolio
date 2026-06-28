@@ -12,6 +12,6 @@ export const en: Dictionary = {
   },
   playground: {
     heading: 'Playground',
-    sub_heading: 'Demo interaktif & contoh visualisasi'
+    sub_heading: 'Interactive demo and visualizations examples.'
   }
 };

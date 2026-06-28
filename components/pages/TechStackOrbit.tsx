@@ -12,7 +12,7 @@ import { Group } from 'three';
 import { useRef } from 'react';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 import { useTheme } from 'next-themes';
-
+import * as THREE from 'three'
 type Logo = {
   name: string;
   image: string;
@@ -20,21 +20,21 @@ type Logo = {
 
 const logos: Logo[] = [
   {
-    name: 'Bootstrap',
-    image: '/icons/mastery/bootstrap.png',
+    name: 'Laravel',
+    image: '/icons/mastery/laravel.png',
   },
   {
-    name: 'Codeigniter',
-    image: '/icons/mastery/codeigniter.png',
+    name: 'Tailwind',
+    image: '/icons/mastery/tailwind.png',
   },
   {
     name: 'Next',
     image: '/icons/mastery/next.png',
   },
-  {
-    name: 'Express',
-    image: '/icons/mastery/express.png',
-  },
+  // {
+  //   name: 'Express',
+  //   image: '/icons/mastery/express.png',
+  // },
   // {
   //   name: 'React',
   //   image: '/icons/mastery/react.png',
@@ -58,6 +58,7 @@ const logos: Logo[] = [
 ];
 function Logo({ url }: { url: string }) {
   const texture = useTexture(url);
+  texture.colorSpace = THREE.SRGBColorSpace
   const { theme } = useTheme()
   return (
     <Billboard>
@@ -70,6 +71,7 @@ function Logo({ url }: { url: string }) {
           <meshBasicMaterial
             map={texture}
             transparent
+            alphaTest={0.5}
           />
         </mesh>
       </group>
@@ -122,6 +124,7 @@ export default function TechStackOrbit() {
     <div>
       <div className="h-[60vh] w-full">
         <Canvas className=" w-full h-full"
+
           camera={{ position: [0, 0, 6], fov: 40 }} gl={{ depth: true }}>
           <ambientLight intensity={2} />
 

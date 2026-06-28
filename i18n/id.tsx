@@ -12,6 +12,6 @@ export const id: Dictionary = {
   },
   playground: {
     heading: 'Playground',
-    sub_heading: 'Interactive demo and visualizations examples.'
+    sub_heading: 'Demo interaktif & contoh visualisasi'
   }
 };

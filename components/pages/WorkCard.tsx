@@ -1,6 +1,7 @@
 import { getParam, printLang } from '@/lib/utils'
 import { WorkExperience } from '@/types'
 import { useParams } from 'next/navigation'
+import BorderGlow from '../BorderGlow'
 
 interface Props {
 	data: WorkExperience
@@ -12,11 +13,12 @@ export default function WorkCard({ data }: Props) {
 	const lang = getParam(params.lang)
 	return (
 		<div className="group border-l-2 border-neutral-200 pl-5 transition-all hover:border-blue-400">
+
 			<div className="mb-1 text-xs font-medium tracking-wide text-slate-500 uppercase">
 				{data.start_month} — {data.end_month}
 			</div>
 
-			<h4 className="text-base font-semibold text-neutral-900 transition-colors group-hover:text-blue-600">
+			<h4 className="text-lg font-semibold text-neutral-900 transition-colors group-hover:text-blue-600">
 				{data.title}
 			</h4>
 

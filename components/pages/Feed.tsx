@@ -33,7 +33,7 @@ export const Feed: NextPage<{
             {dict.feed.work_experience}
           </h3>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             {workExperiences.map((data) => (
               <WorkCard key={data.title} data={data} />
             ))}
