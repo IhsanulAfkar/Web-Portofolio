@@ -22,19 +22,10 @@ interface Playground {
 }
 const playgrounds: Playground[] = [
   {
-    title: 'Social Network Analysis',
+    title: 'Discourse Network Analysis',
     preview: <GraphPreview />,
     description: {
-      en: 'Social Network Analytics',
-      id: 'tobe'
-    },
-    url: '/playground/sna',
-  },
-  {
-    title: 'Social Network Analysis',
-    preview: <GraphPreview />,
-    description: {
-      en: 'Social Network Analytics',
+      en: 'Discourse Network Analytics',
       id: 'tobe'
     },
     url: '/playground/sna',
@@ -112,6 +103,39 @@ const Playground: NextPage<Props> = ({ dict }) => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="mt-10 grid gap-6 xl:hidden">
+          {playgrounds.map((item, i) => (
+            <div
+              key={i}
+              className="overflow-hidden rounded-2xl border bg-white shadow-sm"
+            >
+              <div className="aspect-[16/9] bg-neutral-50">
+                {item.preview}
+              </div>
+
+              <div className="space-y-4 p-5">
+                <div>
+                  <h3 className="text-lg font-semibold">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm text-neutral-600">
+                    {printLang(item.description, lang)}
+                  </p>
+                </div>
+
+                <Link
+                  href={item.url}
+                  target="_blank"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-black px-4 py-3 text-white transition hover:bg-neutral-800"
+                >
+                  Open
+                  <ExternalLink size={18} />
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

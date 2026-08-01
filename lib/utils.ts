@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import moment from 'moment'
+import dayjs from "dayjs"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -30,6 +31,17 @@ export const formatNumber = (num?: number): string => {
     return numStr;
   }
 }
+export const formatReadableDate = (input: string) => {
+  const format = moment(input.replace('Z', '')).fromNow();
+  return format;
+};
+export const getLast7DaysRange = () => {
+  const now = dayjs();
+  return {
+    from: now.subtract(6, "day").startOf("day").toDate(),
+    to: now.endOf("day").toDate(),
+  };
+};
 export const capitalize = (str: string) => {
   return str
     .toLowerCase() // normalize everything first

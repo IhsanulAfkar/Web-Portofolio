@@ -13,27 +13,29 @@ import {
 } from '@/components/ui/sheet'
 
 import LanguageSwitcher from './custom/language-switcher'
+import { Dictionary } from '@/i18n/types'
 
-const menus = [
-  {
-    title: 'About Me',
-    href: '#about',
-  },
-  {
-    title: 'Works',
-    href: '#works',
-  },
-  {
-    title: 'Projects',
-    href: '#projects',
-  },
-  {
-    title: 'Playground',
-    href: '#playground',
-  },
-]
 
-export function Navbar1() {
+export function Navbar1({ dict }: { dict: Dictionary }) {
+
+  const menus = [
+    {
+      title: dict.header.about_me,
+      href: '#about',
+    },
+    {
+      title: dict.header.experience,
+      href: '#works',
+    },
+    {
+      title: dict.header.projects,
+      href: '#projects',
+    },
+    {
+      title: dict.header.playground,
+      href: '#playground',
+    },
+  ]
   return (
     <header className="
 sticky top-0
@@ -56,9 +58,9 @@ supports-[backdrop-filter]:bg-white/60
         {/* Desktop */}
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {menus.map((menu) => (
+          {menus.map((menu, idx) => (
             <Link
-              key={menu.title}
+              key={idx}
               href={menu.href}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
@@ -90,9 +92,9 @@ supports-[backdrop-filter]:bg-white/60
               </SheetHeader>
 
               <nav className="mt-8 flex flex-col gap-2">
-                {menus.map((menu) => (
+                {menus.map((menu, idx) => (
                   <Link
-                    key={menu.title}
+                    key={idx}
                     href={menu.href}
                     className="rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-muted"
                   >

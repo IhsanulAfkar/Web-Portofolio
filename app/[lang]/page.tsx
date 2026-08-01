@@ -1,3 +1,4 @@
+import { AboutMe } from "@/components/pages/AboutMe";
 import { Feed } from "@/components/pages/Feed";
 import Playground from "@/components/pages/Playground";
 import Projects from "@/components/pages/Projects";
@@ -15,8 +16,8 @@ export default async function Home({ params }: {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-4 flex-1 items-center justify-center px-12 min-h-screen">
-        <div className="flex-1 pr-24 flex justify-end">
+      <div className="flex flex-col-reverse md:flex-row gap-4 flex-1 items-center justify-center px-12 min-h-screen">
+        <div className="flex-1 lg:pr-24 flex justify-end">
           <div className="max-w-[600px] space-y-4">
 
             <p className="font-bold text-5xl font-heading leading-tight">
@@ -51,17 +52,20 @@ export default async function Home({ params }: {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="flex-1 relative w-1/2">
-          <div className="absolute inset-0 flex items-center justify-center -z-10">
+        <div className="flex-1 relative w-full lg:w-1/2 my-20 lg:my-0">
+          <div className="absolute inset-0 flex items-center justify-center -z-20">
             <img
               src="/assets/gray-stroke.png"
               className="w-[450px] opacity-30 object-contain mt-12 mr-12"
             />
           </div>
-
-          <TechStackOrbit />
+          <div className="absolute inset-0 flex items-center justify-center -z-10 -top-40">
+            <img src="/assets/foto.png" alt="" className="z-10 object-contain h-[50vh] lg:h-[1000px]" />
+          </div>
+          {/* <TechStackOrbit /> */}
         </div>
       </div>
+      {/* <AboutMe dict={dict} /> */}
       <div className="lg:px-20 sm:px-8 px-0">
         <Feed dict={dict} />
       </div>
