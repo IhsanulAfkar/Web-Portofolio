@@ -7,6 +7,7 @@ import { ReactNode, useState } from 'react'
 import { cn, getParam, printLang } from '@/lib/utils'
 import { useParams } from 'next/navigation'
 import GraphPreview from './partials/GraphPreview'
+import BorderGlow from '../BorderGlow'
 
 interface Props {
   dict: Dictionary
@@ -25,8 +26,8 @@ const playgrounds: Playground[] = [
     title: 'Discourse Network Analysis',
     preview: <GraphPreview />,
     description: {
-      en: 'Discourse Network Analytics',
-      id: 'Discourse Network Analytics'
+      en: 'Map actor coalitions, policy positions, and debates over time.',
+      id: 'Memetakan koalisi aktor, posisi kebijakan, dan debat dari waktu ke waktu.'
     },
     url: '/playground/sna',
   },
@@ -69,13 +70,22 @@ const Playground: NextPage<Props> = ({ dict }) => {
                   {item.title}
                 </h3>
 
-                <p className="mt-2 text-sm text-neutral-500 line-clamp-2">
+                {/* <p className="mt-2 text-sm text-neutral-500 line-clamp-2">
                   {printLang(item.description, lang)}
-                </p>
+                </p> */}
               </button>
             ))}
           </div>
-          <div className="rounded-2xl border bg-white overflow-hidden">
+          <BorderGlow
+            className="
+        group relative overflow-hidden rounded-2xl
+        cursor-pointer border
+        shadow-md hover:shadow-2xl
+        transition-all duration-500 ease-out
+        hover:-translate-y-1
+      "
+            backgroundColor='white'
+          >
             <div className="">
               {active.preview}
             </div>
@@ -102,15 +112,22 @@ const Playground: NextPage<Props> = ({ dict }) => {
                 </Link>
               </div>
             </div>
-          </div>
+          </BorderGlow>
         </div>
         <div className="mt-10 grid gap-6 xl:hidden">
           {playgrounds.map((item, i) => (
-            <div
+            <BorderGlow
               key={i}
-              className="overflow-hidden rounded-2xl border bg-white shadow-sm"
+              className="
+        group relative overflow-hidden rounded-2xl
+        cursor-pointer border
+        shadow-md hover:shadow-2xl
+        transition-all duration-500 ease-out
+        hover:-translate-y-1
+      "
+              backgroundColor='transparent'
             >
-              <div className="aspect-[16/9] bg-neutral-50">
+              <div className=" bg-neutral-50">
                 {item.preview}
               </div>
 
@@ -134,7 +151,7 @@ const Playground: NextPage<Props> = ({ dict }) => {
                   <ExternalLink size={18} />
                 </Link>
               </div>
-            </div>
+            </BorderGlow>
           ))}
         </div>
       </div>

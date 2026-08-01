@@ -3,7 +3,6 @@ import { Feed } from "@/components/pages/Feed";
 import Playground from "@/components/pages/Playground";
 import Projects from "@/components/pages/Projects";
 import { SocialLink } from "@/components/pages/SocialLink";
-import TechStackOrbit from "@/components/pages/TechStackOrbit";
 import { Button } from "@/components/ui/button";
 import LandingThemeSwitcher from "@/components/ui/custom/landing-theme-switcher";
 import SkewButton from "@/components/ui/custom/skew-button";
