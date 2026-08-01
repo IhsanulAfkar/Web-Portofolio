@@ -7,8 +7,8 @@ export const myProjects: Project[] = [
         tag: 'Web Development, Internet of Things, Agriculture',
         title: 'KKN Abdi Masyarakat ITS',
         desc: {
-            en: 'Ciptakan Smart Agriculture Fishing untuk Masyarakat Dusun Kajar Berbasiskan sistem IoT (Internet of Things)',
-            id: 'tobe'
+            en: 'Create Smart Agriculture Fishing for the Dusun Kajar Community Based on an IoT (Internet of Things) system',
+            id: 'Ciptakan Smart Agriculture Fishing untuk Masyarakat Dusun Kajar Berbasiskan sistem IoT (Internet of Things)'
         },
         url: 'https://www.its.ac.id/news/2022/11/29/kkn-abmas-its-ciptakan-smart-agriculture-fishing-untuk-masyarakat-dusun-kajar/'
     },
@@ -19,7 +19,7 @@ export const myProjects: Project[] = [
         title: 'Staff of Website Development ARA 2023',
         desc: {
             en: "Assigned to handle back-end using codeigniter framework in ARA 2023.",
-            id: 'tobe'
+            id: 'Membuat backend menggunakan codeigniter di website ARA 2023.'
         },
         url: 'https://www.instagram.com/p/CfD90TzJ8CI/'
     },
@@ -30,7 +30,7 @@ export const myProjects: Project[] = [
         title: 'Chief of Website Development ARA 4.0',
         desc: {
             en: "Determine web framework, Develop both front-end and back-end, Handling staff divisions and jobs, and Manage the hosted server for ARA 4.0.",
-            id: 'tobe'
+            id: 'Menentukan framework web, Mengembangkan front-end dan back-end, Menangani divisi dan staf, dan Mengelola server yang dihosting untuk ARA 4.0.'
         },
         url: 'https://www.instagram.com/p/CkiC0bvpgF4/'
 
@@ -42,7 +42,7 @@ export const myProjects: Project[] = [
         title: 'Web Developer Internship in PT Adma Digital Solusi (ADS Digital Partner)',
         desc: {
             en: "Create and develop a product called Forwardin in teams as a Web Developer",
-            id: 'tobe'
+            id: 'Membuat dan develop produk Forwardin dengan tim sebagai Web Developer'
         },
         url: 'https://www.instagram.com/forwardin.id/'
     }
@@ -55,7 +55,7 @@ export const workExperiences: WorkExperience[] = [
         subtitle: 'Fullstack Web Developer',
         description: {
             en: 'Develop and maintain running projects with other team and division. Communicate with other division for feature and bug requests. Appointed as mentor for interns, providing guidance and support in real projects',
-            id: 'tobe'
+            id: 'Mengembangkan dan memelihara proyek yang berjalan dengan tim dan divisi lain. Berkomunikasi dengan divisi lain untuk permintaan fitur dan bug. Ditunjuk sebagai mentor bagi pekerja magang, memberikan bimbingan dan dukungan dalam proyek'
         },
         tag: 'Laravel, Filament (Laravel), Next JS, Expres JS, TailwindCSS'
     },
@@ -66,7 +66,7 @@ export const workExperiences: WorkExperience[] = [
         subtitle: 'Front Web Developer',
         description: {
             en: 'Maintain existing website and create new features. Ensure donation transaction registered successfully',
-            id: 'tobe'
+            id: 'Memelihara situs web yang ada dan membuat fitur baru. Memastikan transaksi berhasil masuk ke sistem'
         },
         tag: 'React JS, Bootstrap'
     },
@@ -77,7 +77,7 @@ export const workExperiences: WorkExperience[] = [
         subtitle: 'Web Developer',
         description: {
             en: 'Develop application called Forwardin with teams consist of Back-End, UI/UX, Technical Writer, Data Analyst, Digital Marketing Specialists.',
-            id: 'tobe'
+            id: 'Mengembangkan aplikasi bernama Forwardin dengan tim yang terdiri dari Back-End, UI/UX, Penulis Teknis, Analis Data, Spesialis Pemasaran Digital.'
         },
         tag: 'Laravel, Next JS'
     },

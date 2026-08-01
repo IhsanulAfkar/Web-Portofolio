@@ -26,7 +26,7 @@ const playgrounds: Playground[] = [
     preview: <GraphPreview />,
     description: {
       en: 'Discourse Network Analytics',
-      id: 'tobe'
+      id: 'Discourse Network Analytics'
     },
     url: '/playground/sna',
   },
