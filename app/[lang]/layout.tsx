@@ -16,8 +16,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Web Portofolio",
-  description: "Web Portofolio",
+  title: "Ihsanul Web Portofolio",
+  description: "Ihsanul Web Portofolio",
 };
 
 export default async function RootLayout({

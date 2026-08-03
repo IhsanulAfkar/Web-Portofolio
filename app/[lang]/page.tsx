@@ -41,7 +41,7 @@ export default async function Home({ params }: {
             {/* CTA */}
             <div className="flex justify-end mt-10">
               <a
-                href="mailto:ihsanul2001@mail.com"
+                href="mailto:ihsanul2001@gmail.com"
               >
                 <SkewButton>Contact me</SkewButton>
               </a>
